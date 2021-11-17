@@ -130,3 +130,5 @@ dmypy.json
 
 # Other
 *.DS_Store
+data/raw_images/*
+data/videos/*
