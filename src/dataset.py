@@ -4,18 +4,24 @@ import torch
 
 import cv2
 import numpy as np
+import pandas as pd
 from torchvision import transforms
 
 from torch.utils.data import Dataset
 
+CLASSES = ["chandler", "joey", "monica", "phoebe", "rachel", "ross"]
+
 
 class ImageDataset(Dataset):
-    def __init__(self, csv, train, test):
-        self.csv = csv
+    def __init__(self, train, test):
+        labels_df = pd.read_csv("../data/processed/labels.csv")
+        rows_with_no_class = labels_df[~(
+            labels_df[CLASSES] == 0).all(axis=1)].copy()
+        self.csv = rows_with_no_class
         self.train = train
         self.test = test
         self.all_image_names = self.csv[:]["filename"]
-        self.all_labels = np.array(self.csv.drop(["filename", "ind"], axis=1))
+        self.all_labels = np.array(self.csv.drop(["filename", ], axis=1))
         self.train_ratio = int(0.6 * len(self.csv))
         self.valid_ratio = int(0.2 * len(self.csv))
         self.test_ratio = len(self.csv) - self.train_ratio - self.valid_ratio
