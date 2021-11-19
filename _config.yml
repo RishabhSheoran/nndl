@@ -1,0 +1,5 @@
+title: "Multiple Face Recognition"
+author: Group 47
+exclude_patterns: [_build, .DS_Store, "**.ipynb_checkpoints", src, data]
+execute:
+  execute_notebooks: "off"

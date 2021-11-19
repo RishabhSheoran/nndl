@@ -1,0 +1,30 @@
+format: jb-book
+root: main
+parts:
+  - caption: Data Collection and Preparation
+    chapters:
+      - file: notebooks/data_collection
+      - file: notebooks/data_labelling
+      - file: notebooks/EDA
+  - caption: Multilayer Perceptron
+    chapters:
+      - file: notebooks/mlp_baseline
+      - file: notebooks/mlp_improvement
+  - caption: Convolutional Neural Network
+    chapters:
+      - file: notebooks/cnn_baseline
+      - file: notebooks/cnn_improvement
+  - caption: Recurrent Neural Network
+    chapters:
+      - file: notebooks/rnn_baseline
+      - file: notebooks/rnn_improvement
+  - caption: Attention Neural Network
+    chapters:
+      - file: notebooks/ann_baseline
+      - file: notebooks/ann_improvement
+  - caption: Conclusion
+    chapters:
+      - file: results
+  - caption: Contributions
+    chapters:
+      - file: contributions

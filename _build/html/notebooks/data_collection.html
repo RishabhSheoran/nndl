@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Collection &#8212; Multiple Face Recognition</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Labelling Tool" href="data_labelling.html" />
+    <link rel="prev" title="Introduction" href="../main.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Multiple Face Recognition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../main.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Collection and Preparation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_labelling.html">
+   Data Labelling Tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="EDA.html">
+   Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Multilayer Perceptron
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mlp_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mlp_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Convolutional Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="cnn_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cnn_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recurrent Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rnn_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rnn_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Attention Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ann_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ann_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results.html">
+   Evaluation and Interpretation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contributions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../contributions.html">
+   Contributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/data_collection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebooks/data_collection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-frameextractor">
+   class
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     FrameExtractor
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-and-sampling-the-videos">
+   Downloading and sampling the videos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resizing-all-of-the-images-to-a-fixed-size">
+   Resizing all of the images to a fixed size
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-collection">
+<h1>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h1>
+<p>For data collection, we considered a lot of sources initially.</p>
+<ul class="simple">
+<li><p>Facebook</p></li>
+<li><p>Twitter</p></li>
+<li><p>YouTube</p></li>
+<li><p>Google images</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p>However, eventually we decided to choose one source only to ensure constant aspect ratio, structure and resolution in the images. We chose <strong>YouTube</strong> as it had the largest pool of continuous videos, and the longest samples from official sources (channels) to avoid any copyright issues.</p>
+<p>We used:</p>
+<ol class="simple">
+<li><p>Open-source library <code class="docutils literal notranslate"><span class="pre">PyTube</span></code> to download the video</p></li>
+<li><p>Custom class <code class="docutils literal notranslate"><span class="pre">FrameExtractor</span></code> to sample the video</p></li>
+<li><p>Resize function to reinforce same dimensions of images</p></li>
+</ol>
+<p>The data is collected by downloading YouTube videos using the package <code class="docutils literal notranslate"><span class="pre">pytube</span></code> and sampled using a custom class <code class="docutils literal notranslate"><span class="pre">FrameExtractor</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install pytube
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install opencv-python
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytube in c:\users\saish\anaconda3\lib\site-packages (11.0.1)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 20.2.3; however, version 21.3.1 is available.
+You should consider upgrading via the &#39;C:\Users\saish\anaconda3\python.exe -m pip install --upgrade pip&#39; command.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: opencv-python in c:\users\saish\anaconda3\lib\site-packages (4.2.0.34)
+Requirement already satisfied: numpy&gt;=1.14.5 in c:\users\saish\appdata\roaming\python\python37\site-packages (from opencv-python) (1.19.1)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 20.2.3; however, version 21.3.1 is available.
+You should consider upgrading via the &#39;C:\Users\saish\anaconda3\python.exe -m pip install --upgrade pip&#39; command.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytube</span> <span class="kn">import</span> <span class="n">YouTube</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-frameextractor">
+<h2>class <code class="docutils literal notranslate"><span class="pre">FrameExtractor</span></code><a class="headerlink" href="#class-frameextractor" title="Permalink to this headline">¶</a></h2>
+<p>Class used for extracting frames from a video file.</p>
+<p>Functions:</p>
+<ol class="simple">
+<li><p>get_video_duration - returns the length of the video</p></li>
+<li><p>get_n_images - returns the number of images given a particular sampling rate</p></li>
+<li><p>extract_frames - extracts and stores the frames from a given downloaded video</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FrameExtractor</span><span class="p">():</span>
+ 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">video_path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">video_path</span> <span class="o">=</span> <span class="n">video_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_frames</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_COUNT</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">get_video_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_frames</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">fps</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Duration: </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">duration</span>
+        
+    <span class="k">def</span> <span class="nf">get_n_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">every_x_frame</span><span class="p">):</span>
+        <span class="n">n_images</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">every_x_frame</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Extracting every </span><span class="si">{</span><span class="n">every_x_frame</span><span class="si">}</span><span class="s1"> frames resulted in </span><span class="si">{</span><span class="n">n_images</span><span class="si">}</span><span class="s1"> images.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n_images</span>
+        
+    <span class="k">def</span> <span class="nf">extract_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">every_x_frame</span><span class="p">,</span> <span class="n">img_name</span><span class="p">,</span> <span class="n">dest_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">img_ext</span> <span class="o">=</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">video_path</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">dest_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dest_path</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dest_path</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Created the directory: </span><span class="si">{</span><span class="n">dest_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="n">frame_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">img_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+            
+            <span class="n">success</span><span class="p">,</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> 
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+                <span class="k">break</span>
+            
+            <span class="k">if</span> <span class="n">frame_cnt</span> <span class="o">%</span> <span class="n">every_x_frame</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dest_path</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">img_name</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">img_cnt</span><span class="p">),</span> <span class="n">img_ext</span><span class="p">]))</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>  
+                <span class="n">img_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+            <span class="n">frame_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">vid_cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="downloading-and-sampling-the-videos">
+<h2>Downloading and sampling the videos<a class="headerlink" href="#downloading-and-sampling-the-videos" title="Permalink to this headline">¶</a></h2>
+<p>The links to the Youtube videos are obtained from a file called <code class="docutils literal notranslate"><span class="pre">links.txt</span></code> which is manually fed in.
+We have chosen all videos from Season 5 of F.R.I.E.N.D.S.</p>
+<p>We also extract:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">last_video_index</span></code> : index of the last downloaded video</p></li>
+<li><p><code class="docutils literal notranslate"> <span class="pre">last_sampled_index</span></code> :  index of the last sampled video</p></li>
+</ol>
+<p>This ensures no work is redone when we add more videos to increase the size of the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/other/links.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="n">path_videos</span> <span class="o">=</span> <span class="s2">&quot;../data/videos/&quot;</span>    
+<span class="n">path_images</span> <span class="o">=</span> <span class="s2">&quot;../data/raw_images/&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">def</span> <span class="nf">sorted_alphanumeric</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">alphanum_key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">key</span><span class="p">:</span> <span class="p">[</span> <span class="n">convert</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;([0-9]+)&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="p">]</span> 
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_key</span><span class="p">)</span>
+
+<span class="n">image_dir</span> <span class="o">=</span> <span class="n">sorted_alphanumeric</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path_images</span><span class="p">))</span>
+<span class="n">video_dir</span> <span class="o">=</span> <span class="n">sorted_alphanumeric</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path_videos</span><span class="p">))</span>
+
+<span class="n">last_video_index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">last_sampled_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span> <span class="n">last_video_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">video_dir</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">except</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span> <span class="n">last_sampled_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">image_dir</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">except</span><span class="p">:</span> <span class="k">pass</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last downloaded video index:&quot;</span><span class="p">,</span> <span class="n">last_video_index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last sampled video index:&quot;</span><span class="p">,</span> <span class="n">last_sampled_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last downloaded video index: 14
+Last sampled video index: 14
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">image_count</span></code> keeps track of the number of images sampled and <code class="docutils literal notranslate"><span class="pre">total_duration</span></code> keeps track of the length of the videos sampled.</p>
+<ol class="simple">
+<li><p>The video is downloaded using pytube’s <code class="docutils literal notranslate"><span class="pre">Youtube</span></code> class and the URL from <code class="docutils literal notranslate"><span class="pre">links.txt</span></code></p></li>
+<li><p>The video is sampled using the <code class="docutils literal notranslate"><span class="pre">FrameExtractor</span></code> class from above.</p></li>
+<li><p>Relevant information is extracted and displayed.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_dir</span><span class="p">)</span>
+<span class="n">total_duration</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">video_url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
+    <span class="n">video_url</span> <span class="o">=</span> <span class="n">video_url</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="c1"># Extracting code from the URL</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">video_url</span><span class="p">[</span><span class="n">video_url</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">image_name</span><span class="p">)</span>
+    
+    <span class="n">duration</span><span class="p">,</span> <span class="n">n_images</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    
+    <span class="c1"># Checking if it has already been downloaded</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">last_video_index</span> <span class="ow">or</span> <span class="n">last_video_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="c1"># Downloading the video</span>
+        <span class="n">yt</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="n">video_url</span><span class="p">)</span>
+        <span class="n">yt</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="s1">&#39;mp4&#39;</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="s1">&#39;360p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="n">fps</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">fps</span>
+        <span class="n">video</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">path_videos</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">image_name</span><span class="o">+</span><span class="s2">&quot;.mp4&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloaded video </span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">code</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Already downloaded.&quot;</span><span class="p">)</span>
+    
+    
+    <span class="c1"># Checking if it has already been sampled</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">last_sampled_index</span> <span class="ow">or</span> <span class="n">last_sampled_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Extracting frames from the video per second</span>
+        <span class="n">fe</span> <span class="o">=</span> <span class="n">FrameExtractor</span><span class="p">(</span><span class="n">video</span><span class="p">)</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">fe</span><span class="o">.</span><span class="n">get_video_duration</span><span class="p">()</span>
+        <span class="n">n_images</span> <span class="o">=</span> <span class="n">fe</span><span class="o">.</span><span class="n">get_n_images</span><span class="p">(</span><span class="n">every_x_frame</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+        <span class="n">fe</span><span class="o">.</span><span class="n">extract_frames</span><span class="p">(</span><span class="n">every_x_frame</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span> 
+                          <span class="n">img_name</span><span class="o">=</span><span class="n">image_name</span><span class="p">,</span> 
+                          <span class="n">dest_path</span><span class="o">=</span><span class="n">path_images</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sampled video </span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">code</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Already sampled.&quot;</span><span class="p">)</span>
+        
+    
+    <span class="n">total_duration</span> <span class="o">+=</span> <span class="n">duration</span>
+    <span class="n">image_count</span> <span class="o">+=</span> <span class="n">n_images</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total duration of the videos =&quot;</span><span class="p">,</span> <span class="n">total_duration</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of images =&quot;</span><span class="p">,</span> <span class="n">image_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0_8wewPn7TZfs
+Already downloaded.
+Already sampled.
+
+1_Uyq66PLCvvY
+Already downloaded.
+Already sampled.
+
+2_nzDJdZLPeGE
+Already downloaded.
+Already sampled.
+
+3_eT_Gzi0HN4E
+Already downloaded.
+Already sampled.
+
+4_AtiMqeDmo1M
+Already downloaded.
+Already sampled.
+
+5_oSi_pbzIYng
+Already downloaded.
+Already sampled.
+
+6_aKlLgwyqsqY
+Already downloaded.
+Already sampled.
+
+7_XbywiblA1eQ
+Already downloaded.
+Already sampled.
+
+8_t68chqjlDC8
+Already downloaded.
+Already sampled.
+
+9_5dQZaL5axsw
+Already downloaded.
+Already sampled.
+
+10_hWKgnMaxAIE
+Already downloaded.
+Already sampled.
+
+11_r-Or05EFLUM
+Already downloaded.
+Already sampled.
+
+12_xLNJfAYgvkw
+Already downloaded.
+Already sampled.
+
+13_A0N9YF2jfiw
+Already downloaded.
+Already sampled.
+
+14_XZVHmRvfDHM
+Already downloaded.
+Already sampled.
+
+15_dThvyim4tbU
+Downloaded video 15_dThvyim4tbU
+Duration: 0:05:12.739130
+Extracting every 24 frames resulted in 300 images.
+Sampled video 15_dThvyim4tbU
+
+16_gyKmICnNRhs
+Downloaded video 16_gyKmICnNRhs
+Duration: 0:04:50.347826
+Extracting every 24 frames resulted in 279 images.
+Sampled video 16_gyKmICnNRhs
+
+17_NCLZi2Rn_ug
+Downloaded video 17_NCLZi2Rn_ug
+Duration: 0:03:04.260870
+Extracting every 24 frames resulted in 177 images.
+Sampled video 17_NCLZi2Rn_ug
+
+18_197479hGyb8
+Downloaded video 18_197479hGyb8
+Duration: 0:02:33.043478
+Extracting every 24 frames resulted in 147 images.
+Sampled video 18_197479hGyb8
+
+19_xLNJfAYgvkw
+Downloaded video 19_xLNJfAYgvkw
+Duration: 0:04:38.739130
+Extracting every 24 frames resulted in 268 images.
+Sampled video 19_xLNJfAYgvkw
+
+20_AtiMqeDmo1M
+Downloaded video 20_AtiMqeDmo1M
+Duration: 0:04:14.869565
+Extracting every 24 frames resulted in 245 images.
+Sampled video 20_AtiMqeDmo1M
+
+21_2Glqdb0GFB0
+Downloaded video 21_2Glqdb0GFB0
+Duration: 0:03:54.913043
+Extracting every 24 frames resulted in 226 images.
+Sampled video 21_2Glqdb0GFB0
+
+22_hWKgnMaxAIE
+Downloaded video 22_hWKgnMaxAIE
+Duration: 0:04:58.043478
+Extracting every 24 frames resulted in 286 images.
+Sampled video 22_hWKgnMaxAIE
+
+23_Xtwar56r4Lg
+Downloaded video 23_Xtwar56r4Lg
+Duration: 0:04:54.956522
+Extracting every 24 frames resulted in 283 images.
+Sampled video 23_Xtwar56r4Lg
+
+24_dThvyim4tbU
+Downloaded video 24_dThvyim4tbU
+Duration: 0:05:12.739130
+Extracting every 24 frames resulted in 300 images.
+Sampled video 24_dThvyim4tbU
+
+25_7y2-SQUzgyY
+Downloaded video 25_7y2-SQUzgyY
+Duration: 0:04:53.739130
+Extracting every 24 frames resulted in 282 images.
+Sampled video 25_7y2-SQUzgyY
+
+26_c3hh1AYMo7o
+Downloaded video 26_c3hh1AYMo7o
+Duration: 0:04:43.086957
+Extracting every 24 frames resulted in 272 images.
+Sampled video 26_c3hh1AYMo7o
+
+27_0jtWcq3zLfo
+Downloaded video 27_0jtWcq3zLfo
+Duration: 0:04:05.086957
+Extracting every 24 frames resulted in 235 images.
+Sampled video 27_0jtWcq3zLfo
+
+28_UwM8km0ALbo
+Downloaded video 28_UwM8km0ALbo
+Duration: 0:02:28
+Extracting every 24 frames resulted in 142 images.
+Sampled video 28_UwM8km0ALbo
+
+29_mYFW_pmnjK0
+Downloaded video 29_mYFW_pmnjK0
+Duration: 0:03:21.565217
+Extracting every 24 frames resulted in 194 images.
+Sampled video 29_mYFW_pmnjK0
+
+30_oSi_pbzIYng
+Downloaded video 30_oSi_pbzIYng
+Duration: 0:04:12.217391
+Extracting every 24 frames resulted in 242 images.
+Sampled video 30_oSi_pbzIYng
+
+31_MJFyzG0ES5g
+Downloaded video 31_MJFyzG0ES5g
+Duration: 0:04:59.956522
+Extracting every 24 frames resulted in 288 images.
+Sampled video 31_MJFyzG0ES5g
+
+32_5dQZaL5axsw
+Downloaded video 32_5dQZaL5axsw
+Duration: 0:04:52.086957
+Extracting every 24 frames resulted in 280 images.
+Sampled video 32_5dQZaL5axsw
+
+33_bRVueBoZjEA
+Downloaded video 33_bRVueBoZjEA
+Duration: 0:02:34.130435
+Extracting every 24 frames resulted in 148 images.
+Sampled video 33_bRVueBoZjEA
+
+34_aKlLgwyqsqY
+Downloaded video 34_aKlLgwyqsqY
+Duration: 0:04:00.521739
+Extracting every 24 frames resulted in 231 images.
+Sampled video 34_aKlLgwyqsqY
+
+35_5xiYuZJU4n4
+Downloaded video 35_5xiYuZJU4n4
+Duration: 0:03:48.347826
+Extracting every 24 frames resulted in 219 images.
+Sampled video 35_5xiYuZJU4n4
+
+36__mu1kQqkl1E
+Downloaded video 36__mu1kQqkl1E
+Duration: 0:04:56.695652
+Extracting every 24 frames resulted in 285 images.
+Sampled video 36__mu1kQqkl1E
+
+37_XYzdtsDLrCE
+Downloaded video 37_XYzdtsDLrCE
+Duration: 0:02:32.173913
+Extracting every 24 frames resulted in 146 images.
+Sampled video 37_XYzdtsDLrCE
+
+38_r-Or05EFLUM
+Downloaded video 38_r-Or05EFLUM
+Duration: 0:04:18.304348
+Extracting every 24 frames resulted in 248 images.
+Sampled video 38_r-Or05EFLUM
+
+39_yXWewjBsmQs
+Downloaded video 39_yXWewjBsmQs
+Duration: 0:02:16.521739
+Extracting every 24 frames resulted in 131 images.
+Sampled video 39_yXWewjBsmQs
+
+Total duration of the videos = 6097.086956521739
+Total number of images = 9577
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resizing-all-of-the-images-to-a-fixed-size">
+<h2>Resizing all of the images to a fixed size<a class="headerlink" href="#resizing-all-of-the-images-to-a-fixed-size" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;../data/raw_images/&#39;</span>
+<span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">144</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span> <span class="k">continue</span>
+    <span class="n">f_img</span> <span class="o">=</span> <span class="n">f</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">file</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f_img</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f_img</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reshaped all images to (</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reshaped all images to (256, 144)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../main.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data_labelling.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Labelling Tool</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Group 47<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Labelling Tool &#8212; Multiple Face Recognition</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exploratory Data Analysis" href="EDA.html" />
+    <link rel="prev" title="Data Collection" href="data_collection.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Multiple Face Recognition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../main.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Collection and Preparation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_collection.html">
+   Data Collection
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Labelling Tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="EDA.html">
+   Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Multilayer Perceptron
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mlp_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mlp_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Convolutional Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="cnn_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cnn_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recurrent Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rnn_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rnn_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Attention Neural Network
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ann_baseline.html">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ann_improvement.html">
+   Improvements
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../results.html">
+   Evaluation and Interpretation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contributions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../contributions.html">
+   Contributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/data_labelling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebooks/data_labelling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-labelling-tool">
+<h1>Data Labelling Tool<a class="headerlink" href="#data-labelling-tool" title="Permalink to this headline">¶</a></h1>
+<p>This notebook is used to label the images collected using data_collection.ipynb - read instructions below for labelling.</p>
+<p>Sample Snapshot:</p>
+<p><img alt="label_ss" src="../_images/label.png" /></p>
+<p><strong>Instructions</strong></p>
+<ol class="simple">
+<li><p>Update START_IDX and END_IDX variables with the index assigned to you</p></li>
+<li><p>Select Run -&gt; Run All Cells</p></li>
+<li><p>Scroll all the way to the bottom and begin labelling images</p></li>
+<li><p>Note that each entry is saved on disk with every click of Prev, Save and Next buttons</p></li>
+<li><p>If you have to step away while labelling (or your system has to restart for some reason), don’t worry about starting all over. When you return back, just run all cells and it will start with the last image you were labelling and you can continue from there</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set default logging level</span>
+<span class="c1"># Change to logging.INFO to see related output</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">START_IDX</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">END_IDX</span> <span class="o">=</span> <span class="mi">4000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RAW_IMAGES_DIR</span> <span class="o">=</span> <span class="s2">&quot;../data/raw_images/&quot;</span>
+
+<span class="n">TARGET_FILE_PATH</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../data/processed/</span><span class="si">{</span><span class="n">START_IDX</span><span class="si">}</span><span class="s2">_to_</span><span class="si">{</span><span class="n">END_IDX</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+<span class="n">LABEL_DF_COLUMNS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;chandler&quot;</span><span class="p">,</span> <span class="s2">&quot;joey&quot;</span><span class="p">,</span> <span class="s2">&quot;monica&quot;</span><span class="p">,</span> <span class="s2">&quot;phoebe&quot;</span><span class="p">,</span> <span class="s2">&quot;rachel&quot;</span><span class="p">,</span> <span class="s2">&quot;ross&quot;</span><span class="p">,]</span>
+<span class="n">POSSIBLE_CHARACTERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;chandler&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;joey&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;monica&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;phoebe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rachel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ross&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="n">raw_image_info</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">RAW_IMAGES_DIR</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">):</span>
+        <span class="n">raw_image_info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">filename</span><span class="p">,</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">]),</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RAW_IMAGES_DIR</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found non-image file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> in given folder </span><span class="si">{</span><span class="n">RAW_IMAGES_DIR</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">image_info_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">raw_image_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;video_index&quot;</span><span class="p">,</span> <span class="s2">&quot;image_frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;filepath&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">image_info_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;filename&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image_info_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;video_index&quot;</span><span class="p">,</span> <span class="s2">&quot;image_frame_id&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">image_info_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> files to process&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_info_df</span><span class="p">[</span><span class="n">image_info_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)]):</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Found duplicate files in </span><span class="si">{</span><span class="n">image_info_df</span><span class="p">[</span><span class="n">image_info_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span><span class="si">}</span><span class="s2"> - check and remove duplicates&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">image_info_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_image_info_df</span> <span class="o">=</span> <span class="n">image_info_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">START_IDX</span><span class="p">:</span><span class="n">END_IDX</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_labelled_image_info</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">TARGET_FILE_PATH</span><span class="p">):</span>
+        <span class="n">labelled_image_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">TARGET_FILE_PATH</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">labelled_image_info</span><span class="p">)</span><span class="si">}</span><span class="s2"> images processed so far between indices </span><span class="si">{</span><span class="n">START_IDX</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">END_IDX</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating file </span><span class="si">{</span><span class="n">TARGET_FILE_PATH</span><span class="si">}</span><span class="s2"> for storing label information&quot;</span><span class="p">)</span>
+        <span class="n">labelled_image_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">LABEL_DF_COLUMNS</span>
+        <span class="p">)</span>
+
+    <span class="n">labelled_image_info</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;filename&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">labelled_image_info</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRESS_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/</span><span class="si">{1}</span><span class="s2">&quot;</span>
+<span class="n">curr_start_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">get_labelled_image_info</span><span class="p">())</span>
+<span class="n">progress_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntProgress</span><span class="p">(</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">curr_start_index</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="nb">max</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_image_info_df</span><span class="p">),</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Progress:&quot;</span><span class="p">,</span>
+    <span class="n">bar_style</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">header_label</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Processing images from index </span><span class="si">{</span><span class="n">START_IDX</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">END_IDX</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">)</span>
+<span class="n">progress_label</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">PROGRESS_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">END_IDX</span> <span class="o">-</span> <span class="n">START_IDX</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">radio_buttons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">character</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">POSSIBLE_CHARACTERS</span>
+<span class="p">]</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,)</span>
+<span class="n">prev_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Previous&quot;</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Modify previous image&quot;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;long-arrow-alt-left&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">next_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Next&quot;</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Modify next image&quot;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;long-arrow-alt-right&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">save_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Save&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Save label info&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;save&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">output_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_curr_app_state_to_disk</span><span class="p">():</span>
+    <span class="n">curr_image_info</span> <span class="o">=</span> <span class="p">{</span><span class="n">radio_button</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">radio_button</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">radio_button</span> <span class="ow">in</span> <span class="n">radio_buttons</span><span class="p">}</span>
+    <span class="n">curr_image_info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">filtered_image_info_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+    <span class="n">curr_image_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">curr_image_info</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">LABEL_DF_COLUMNS</span><span class="p">)</span>
+    <span class="n">curr_image_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">labelled_image_info</span> <span class="o">=</span> <span class="n">get_labelled_image_info</span><span class="p">()</span>
+    <span class="n">labelled_image_info</span> <span class="o">=</span> <span class="n">curr_image_df</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">labelled_image_info</span><span class="p">)</span>
+    <span class="n">labelled_image_info</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">TARGET_FILE_PATH</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">update_prev_button</span><span class="p">(</span><span class="n">btn</span><span class="p">):</span>
+    <span class="n">save_curr_app_state_to_disk</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="n">progress_label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">PROGRESS_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">END_IDX</span> <span class="o">-</span> <span class="n">START_IDX</span>
+    <span class="p">)</span>
+    <span class="n">update_out</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">update_next_button</span><span class="p">(</span><span class="n">btn</span><span class="p">):</span>
+    <span class="n">save_curr_app_state_to_disk</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">END_IDX</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in here&quot;</span><span class="p">)</span>
+        <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">progress_label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">PROGRESS_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">END_IDX</span> <span class="o">-</span> <span class="n">START_IDX</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">update_out</span><span class="p">()</span>
+
+
+<span class="n">next_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">update_next_button</span><span class="p">)</span>
+<span class="n">prev_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">update_prev_button</span><span class="p">)</span>
+<span class="n">save_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="k">lambda</span> <span class="n">btn</span><span class="p">:</span> <span class="n">save_curr_app_state_to_disk</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">update_radio_buttons</span><span class="p">():</span>
+    <span class="n">labelled_image_info</span> <span class="o">=</span> <span class="n">get_labelled_image_info</span><span class="p">()</span>
+    <span class="n">curr_image_filename</span> <span class="o">=</span> <span class="n">filtered_image_info_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="n">curr_image_filename</span> <span class="ow">in</span> <span class="n">labelled_image_info</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">radio_button</span> <span class="ow">in</span> <span class="n">radio_buttons</span><span class="p">:</span>
+            <span class="n">radio_button</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">labelled_image_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">curr_image_filename</span><span class="p">][</span><span class="n">radio_button</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">radio_button</span> <span class="ow">in</span> <span class="n">radio_buttons</span><span class="p">:</span>
+            <span class="n">radio_button</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+            
+<span class="k">def</span> <span class="nf">update_out</span><span class="p">():</span>
+    <span class="n">output_widget</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">END_IDX</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">output_widget</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="s2">&quot;Good job, you&#39;ve finished labelling the images assigned to you!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">update_radio_buttons</span><span class="p">()</span>    
+
+    <span class="n">image</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+        <span class="n">filtered_image_info_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">progress_widget</span><span class="o">.</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="n">output_widget</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">AppLayout</span><span class="p">(</span>
+                <span class="n">header</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">header_label</span><span class="p">,</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">progress_widget</span><span class="p">,</span> <span class="n">progress_label</span><span class="p">])]),</span>
+                <span class="n">center</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">image</span><span class="p">,</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">radio_buttons</span><span class="p">)]),</span>
+                <span class="n">footer</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">prev_button</span><span class="p">,</span> <span class="n">save_button</span><span class="p">,</span> <span class="n">next_button</span><span class="p">]),</span>
+                <span class="n">pane_heights</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;70px&quot;</span><span class="p">,</span> <span class="s2">&quot;350px&quot;</span><span class="p">,</span> <span class="s2">&quot;40px&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">output_widget</span><span class="p">)</span>
+<span class="n">update_out</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the below to combine labels generated separately and save it back as a csv</span>
+<span class="c1">#</span>
+<span class="c1"># import pandas as pd</span>
+
+<span class="c1"># files = [</span>
+<span class="c1">#     &quot;../data/processed/0_to_333.csv&quot;,</span>
+<span class="c1">#     &quot;../data/processed/333_to_666.csv&quot;,</span>
+<span class="c1">#     &quot;../data/processed/666_to_999.csv&quot;,</span>
+<span class="c1">#     &quot;../data/processed/1000_to_1333.csv&quot;,</span>
+<span class="c1">#     &quot;../data/processed/1333_to_2000.csv&quot;,</span>
+<span class="c1">#     &quot;../data/processed/3000_to_4000.csv&quot;,</span>
+<span class="c1"># ]</span>
+<span class="c1"># results = []</span>
+<span class="c1"># for file_path in files:</span>
+<span class="c1">#     labels = pd.read_csv(file_path)</span>
+<span class="c1">#     labels[&quot;video_index&quot;] = labels.filename.apply(lambda v: int(v.split(&quot;_&quot;)[0]))</span>
+<span class="c1">#     labels[&quot;frame_index&quot;] = labels.filename.apply(lambda v: int(v.split(&quot;_&quot;)[-1][:-4]))</span>
+<span class="c1">#     labels.sort_values([&quot;video_index&quot;, &quot;frame_index&quot;], ascending=True, inplace=True)</span>
+<span class="c1">#     results.append(labels)</span>
+
+<span class="c1"># df_combined = pd.concat(results)</span>
+<span class="c1"># df_combined.drop([&quot;video_index&quot;, &quot;frame_index&quot;], axis=1).to_csv(</span>
+<span class="c1">#     &quot;../data/processed/labels.csv&quot;, index=False</span>
+<span class="c1"># )</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="data_collection.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Collection</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="EDA.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploratory Data Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Group 47<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
